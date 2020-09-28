@@ -22,7 +22,7 @@ int main() {
 
     x = i = 0;
     while (x < k) {
-        x += pts[i++]; // conta quantos competidores se classificarão
+        x += pts[i++]; // conta quantos competidores se classificaram
     }
     
     cout << x << endl;
