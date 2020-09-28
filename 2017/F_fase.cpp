@@ -1,5 +1,5 @@
 /*
-    Em uma competição, de N competidores, no mínimo K competidores de classificam.
+    Em uma competição de N competidores, no mínimo K competidores de classificam.
     Em caso de empate na última colocação, todos passam..
 */
 
