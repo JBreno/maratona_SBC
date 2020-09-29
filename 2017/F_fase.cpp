@@ -17,7 +17,7 @@ int main() {
 
     for(i = 0; i < n; i++){
         cin >> x;
-        pts[-x +1000] += 1; // mais um competidor com pontuação igual a -x +1000
+        pts[-x +1000] += 1; // mais um competidor com pontuação igual a x
     }
 
     x = i = 0;
