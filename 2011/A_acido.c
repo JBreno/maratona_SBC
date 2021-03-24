@@ -1,7 +1,7 @@
 /**
  * Problema A - Maratona de 2011
  * Título: Ácido Ribonucleico Alienígena
- * Ctegoria: Pilha, Strings
+ * Categoria: Pilha, Strings
  * Solução em C
  * Problema 1242 do URI
 */
