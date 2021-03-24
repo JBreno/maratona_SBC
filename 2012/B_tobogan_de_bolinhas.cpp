@@ -1,12 +1,21 @@
-#include <stdio.h>
+/**
+ * Problema B - Maratona de 2012
+ * Título: Tobogan de Bolinhas
+ * Categoria: Matemática
+ * Solução em C++
+ * Problema 1223 do URI
+*/
+
 #include <algorithm>
+#include <stdio.h>
 #include <vector>
 #include <math.h>
 #define INF 1e4
 
 using namespace std;
 
-class Reta {
+class Reta
+{
 private:
     double a, b;
     int _x, _y;
@@ -15,11 +24,13 @@ public:
     double distToPoint(int,int,bool);
 };
 
-double Reta::distToPoint(int xp, int yp, bool dir) {
+double Reta::distToPoint(int xp, int yp, bool dir)
+{
     double x = ((xp) +(a*yp) -(a*b))/(double)((a*a) +1);
     double y = ((a*x) +b);
 
-    if ((dir && (x > _x)) || (!dir && (x < _x))) {
+    if ((dir && (x > _x)) || (!dir && (x < _x)))
+    {
         x = _x;
         y = _y;
     }
@@ -27,24 +38,29 @@ double Reta::distToPoint(int xp, int yp, bool dir) {
     return sqrt((((x -xp)*(x -xp)) + ((y -yp)*(y -yp))));
 }
 
-void solve(int n) {
+void solve(int n)
+{
     vector<pair<int,int>> pontos;
     vector<Reta> segs;
 
     bool direita = false;
     int l,h,yi,xf,yf,i;
-    double a,b,d;
     double ans = INF;
+    double a,b,d;
 
     scanf("%i %i", &l, &h);
 
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < n; i++)
+    {
         scanf("%i %i %i", &yi, &xf, &yf);
 
-        if (direita) {
+        if (direita)
+        {
             a = (yi -yf)/(double)(l -xf);
             b = (yi -(a*l));
-        } else {
+        }
+        else
+        {
             a = ((yf -yi)/(double)xf);
             b = yi;
         }
@@ -56,33 +72,32 @@ void solve(int n) {
 
     direita = false;
 
-    for (i = 0; i < (n -1); i++) {
+    for (i = 0; i < (n -1); i++)
+    {
         d = segs[i+1].distToPoint(pontos[i].first, pontos[i].second, direita);
 
-        if (direita) {
+        if (direita)
             ans = min(ans, min((double)(pontos[i].first), d));
-        } else {
+        else
             ans = min(ans, min((double)(l -pontos[i].first), d));
-        }
 
         direita = !direita;
     }
 
-    if (direita) {
+    if (direita)
         ans = min(ans, (double)(pontos[i].first));
-    } else {
+    else
         ans = min(ans, (double)(l -pontos[i].first));
-    }
 
     printf("%.2f\n", ans);
 }
 
-int main() {
+int main()
+{
     int n;
 
-    while (scanf("%i", &n) != EOF) {
+    while (scanf("%i", &n) != EOF)
         solve(n);
-    }
     
     return 0;
 }

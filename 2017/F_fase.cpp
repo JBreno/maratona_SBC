@@ -1,6 +1,9 @@
-/*
-    Em uma competição de N competidores, no mínimo K competidores de classificam.
-    Em caso de empate na última colocação, todos passam..
+/**
+ * Problema F - Maratona de 2017
+ * Título: Fase
+ * Categoria: Lógica, Iniciante
+ * Solução em C++
+ * Problema 2663 do URI
 */
 
 #include <iostream>
@@ -8,24 +11,24 @@
 
 using namespace std;
  
-int main() {
- 
+int main()
+{
+
     int n,k,x,i;
-    vector<int> pts(1000, 0); // vetor de 1000 posições com valor 0 em cada uma
-    
+    vector<int> pts(1000, 0);
     cin >> n >> k;
 
-    for(i = 0; i < n; i++){
+    for(i = 0; i < n; i++)
+    {
         cin >> x;
-        pts[-x +1000] += 1; // mais um competidor com pontuação igual a x
+        pts[-x +1000] += 1;
     }
 
     x = i = 0;
-    while (x < k) {
-        x += pts[i++]; // conta quantos competidores se classificaram
-    }
-    
-    cout << x << endl;
 
+    while (x < k)
+        x += pts[i++];
+
+    cout << x << endl;
     return 0;
 }

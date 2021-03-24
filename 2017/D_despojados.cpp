@@ -1,28 +1,40 @@
-#include <bits/stdc++.h>
+/**
+ * Problema D - Maratona de 2017
+ * Título: Despojados
+ * Categoria: Matemática, Teoria dos números
+ * Solução em C++
+ * Problema 2661 do URI
+*/
 
-typedef long long int LLI;
+#include <iostream>
+#include <vector>
+#include <math.h>
 
 using namespace std;
+typedef long long int lli;
 
-vector<LLI> fatores;
+vector<lli> fatores;
 
-LLI isPrimo(LLI n){
-    for(LLI d = 2; d*d < n+1; d++){
+lli isPrimo(lli n)
+{
+    for(lli d = 2; d*d < n+1; d++)
         if( n%d == 0 )
             return d;
-    }
+
     return 0;
 }
 
-void fatora(LLI n){
+void fatora(lli n)
+{
+    if(n < fatores.back())
+        return;
 
-    if(n < fatores.back()) return;
+    lli p = isPrimo(n);
 
-    LLI p = isPrimo(n);
-    if(p == 0 && n > fatores.back()){
-
+    if(p == 0 && n > fatores.back())
         fatores.push_back(n);
-    }else if(p){
+    else if(p)
+    {
         fatora(p);
         fatora(n/p);
     }
@@ -30,20 +42,14 @@ void fatora(LLI n){
 
 int main()
 {
-    LLI N, ans, aux;
-    cin >> N;
+    lli n, ans, aux;
+    cin >> n;
 
     fatores.push_back(1);
-
-    fatora(N);
-
+    fatora(n);
     aux = fatores.size()-1;
-
     ans = aux < 2 ? 0 : (pow(2, aux))-aux-1;
 
     cout << ans << endl;
-
-    //for(LLI x : fatores) cout << x << endl;
-
     return 0;
 }
