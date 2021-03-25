@@ -13,9 +13,7 @@
 #include <vector>
 
 using namespace std;
-
 #define MAX 1000001
-
 typedef pair<int,int> pii;
 
 struct pto 
@@ -25,8 +23,8 @@ struct pto
 
 vector<vector< pto >> segs;
 vector<pii> extms;
-vector< pto > seg;
-vector< pii > S;
+vector<pto> seg;
+vector<pii> S;
 
 const int INF = MAX+10;
 double miA, maA;
